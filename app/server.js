@@ -72,16 +72,16 @@ app.post('/pirate', async(req, res)=>{
     res.status(200).json(myobj) 
 })
 
-// add score
-app.post('/score', async(req, res)=>{
+// add price
+app.post('/price', async(req, res)=>{
     const email = req.body.email;
-    const prj = req.body.project;
-    const sc = req.body.score;
-    console.log("add project email: " + email);
-    console.log("add project name: " + prj);
-    console.log("add project score: " + sc);
+    const tre = req.body.treasure;
+    const sc = req.body.price;
+    console.log("add pirate email: " + email);
+    console.log("add treasure name: " + tre);
+    console.log("add treasure price: " + sc);
 
-    var args=[email, prj, sc];
+    var args=[email, tre, sc];
     result = cc_call('addRating', args)
 
     const myobj = {result: "success"}

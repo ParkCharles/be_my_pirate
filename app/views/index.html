@@ -35,8 +35,8 @@
                 <div id="add-alert"></div>
                 <h3>해적이 가진 보물의 가치를 추가합니다</h3>
                 <input type="text" id="add-email" name="email" placeholder="동료가 될 해적의 email을 입력하세요"> <br>
-                <input type="text" id="add-project" name="project" placeholder="해적이 가진 보물이름을 입력하세요"> <br>
-                <input type="text" id="add-score" name="score" placeholder="보물의 가치를 입력하세요"> <br>
+                <input type="text" id="add-treasure" name="treasure" placeholder="해적이 가진 보물이름을 입력하세요"> <br>
+                <input type="text" id="add-price" name="price" placeholder="보물의 가치를 입력하세요"> <br>
                 <button class="btn btn-primary" id="add-btn">추가하기</button>
             </div>     
         </div>   
@@ -76,13 +76,13 @@
     $("#add-btn").click(()=>{
         // new-email이라는 id값을 가지고 있는 input의 value를 가지고 옴
         const e = $("#add-email").val();
-        const p = $("#add-project").val();
-        const s = $("#add-score").val();
+        const p = $("#add-treasure").val();
+        const s = $("#add-price").val();
 
-        const url = "/score"
+        const url = "/price"
 
         // email이라는 파라메터에 위의 value를 넣음
-        $.post(url, {email: e,project: p, score:s }, (data,status)=>{
+        $.post(url, {email: e,treasure: p, price:s }, (data,status)=>{
             // http 상태 코드가 200(success)이라면
             if(status == "success"){
                 // 성공했다는 alert창을 띄움
@@ -109,8 +109,8 @@
                 $('#table').append("<tr><th scope='row'>average</th><td>" + parsedData.average + "</td></tr>")
                 // Line 69~ 86 : rates라는 key의 value로 Json array가 있으므로 반복문을 통해 한 줄씩 테이블에 넣어줌
                 for(var i = 0; i < parsedData.rates.length; i++ ){
-                    $('#table').append("<tr><th scope='row'>project title</th><td>" + parsedData.rates[i].projecttitle + "</td></tr>")
-                    $('#table').append("<tr><th scope='row'>score</th><td>" + parsedData.rates[i].score + "</td></tr>")
+                    $('#table').append("<tr><th scope='row'>treasure title</th><td>" + parsedData.rates[i].treasuretitle + "</td></tr>")
+                    $('#table').append("<tr><th scope='row'>price</th><td>" + parsedData.rates[i].price + "</td></tr>")
                 }
             }        
         })
