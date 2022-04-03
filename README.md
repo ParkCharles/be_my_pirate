@@ -1,6 +1,6 @@
 # be_my_pirate
 
-# HYPERLEDGER FABRIC 1.4 sample
+# HYPERLEDGER FABRIC
 
 ## pre-condition
 * curl, docker, docker-compose, go, nodejs, python 
